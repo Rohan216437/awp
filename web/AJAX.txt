@@ -1,0 +1,71 @@
+*****************************************FILE.ASPX*********************************
+
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="ajaxcontrol.WebForm1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
+        </asp:ScriptManager>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+                <asp:TextBox ID="TextBox1" runat="server" BorderStyle="Ridge"></asp:TextBox>
+                <asp:TextBox ID="TextBox2" runat="server" BorderStyle="Ridge"></asp:TextBox>
+                <br />
+                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="submit" />
+                <br />
+                <asp:Label ID="Label2" runat="server" BorderStyle="Ridge" Text="Label"></asp:Label>
+<br />
+<br />
+<br />
+            </ContentTemplate>
+        </asp:UpdatePanel>
+        <asp:UpdateProgress ID="UpdateProgress1" runat="server" AssociatedUpdatePanelID="UpdatePanel1">
+            <ProgressTemplate>
+                <asp:Image ID="Image1" runat="server" Height="40px" ImageUrl="~/giphy.gif" Width="62px" />
+                <br />
+                <asp:Label ID="Label1" runat="server" Text="plz Wait"></asp:Label>
+<br />
+<br />
+            </ProgressTemplate>
+        </asp:UpdateProgress>
+        <br />
+    <div>
+    
+    </div>
+    </form>
+</body>
+</html>
+
+
+***************************FILE.ASPX.CS******************************************
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace ajaxcontrol
+{
+    public partial class WebForm1 : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            System.Threading.Thread.Sleep(13000);
+           Label2.Text= TextBox1.Text + TextBox2.Text;
+        }
+    }
+}

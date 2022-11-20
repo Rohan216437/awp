@@ -1,0 +1,85 @@
+*****************VALIDATION.ASPX************************
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="validation.WebForm1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+    
+        <asp:Label ID="Label1" runat="server" Text="Email_ID"></asp:Label>
+        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="TextBox1" ErrorMessage="abc@gmail.com" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)@\w+([-.]\w+)\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+        <br />
+        <asp:Label ID="Label2" runat="server" Text="Age"></asp:Label>
+        <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+        <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="TextBox2" ErrorMessage="Age must between 13 to 19" ForeColor="Red" MaximumValue="19" MinimumValue="13"></asp:RangeValidator>
+        <br />
+        <asp:Label ID="Label3" runat="server" Text="Password"></asp:Label>
+        <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+        <br />
+        <asp:Label ID="Label4" runat="server" Text="Confirm Password"></asp:Label>
+        <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+        <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="TextBox3" ControlToValidate="TextBox4" ErrorMessage="incorrect .....Try Again" ForeColor="Red"></asp:CompareValidator>
+        <br />
+        <asp:Label ID="Label5" runat="server" Text="Name"></asp:Label>
+        <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox5" ErrorMessage="Name is Required" ForeColor="Red"></asp:RequiredFieldValidator>
+        <br />
+        <br />
+        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Submit" />
+    
+    </div>
+    </form>
+</body>
+</html>
+
+***************************WEB.CONFIG***********************************88
+<?xml version="1.0"?>
+
+<!--
+  For more information on how to configure your ASP.NET application, please visit
+  http://go.microsoft.com/fwlink/?LinkId=169433
+  -->
+
+<configuration>
+  <appSettings>
+    <add key ="ValidationSettings:UnobtrusiveValidationMode" value="None"/>
+  </appSettings>
+    <system.web>
+      
+      <compilation debug="true" targetFramework="4.5" />
+      <httpRuntime targetFramework="4.5" />
+    </system.web>
+
+</configuration>
+
+*********************************VALIDATION.ASPX.CS**********************************
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace validation
+{
+    public partial class WebForm1 : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Write("Submitted");
+        }
+    }
+}
