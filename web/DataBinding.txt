@@ -1,0 +1,107 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="dataBind.WebForm1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:FormView ID="FormView1" runat="server" DataKeyNames="RollNo" DataSourceID="SqlDataSource2" Height="236px" Width="459px">
+            <EditItemTemplate>
+                RollNo:
+                <asp:Label ID="RollNoLabel1" runat="server" Text='<%# Eval("RollNo") %>' />
+                <br />
+                Name:
+                <asp:TextBox ID="NameTextBox" runat="server" Text='<%# Bind("Name") %>' />
+                <br />
+                Classno:
+                <asp:TextBox ID="ClassnoTextBox" runat="server" Text='<%# Bind("Classno") %>' />
+                <br />
+                Phone:
+                <asp:TextBox ID="PhoneTextBox" runat="server" Text='<%# Bind("Phone") %>' />
+                <br />
+                email:
+                <asp:TextBox ID="emailTextBox" runat="server" Text='<%# Bind("email") %>' />
+                <br />
+                <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
+                &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+            </EditItemTemplate>
+            <InsertItemTemplate>
+                RollNo:
+                <asp:TextBox ID="RollNoTextBox" runat="server" Text='<%# Bind("RollNo") %>' />
+                <br />
+                Name:
+                <asp:TextBox ID="NameTextBox" runat="server" Text='<%# Bind("Name") %>' />
+                <br />
+                Classno:
+                <asp:TextBox ID="ClassnoTextBox" runat="server" Text='<%# Bind("Classno") %>' />
+                <br />
+                Phone:
+                <asp:TextBox ID="PhoneTextBox" runat="server" Text='<%# Bind("Phone") %>' />
+                <br />
+                email:
+                <asp:TextBox ID="emailTextBox" runat="server" Text='<%# Bind("email") %>' />
+                <br />
+                <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
+                &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+            </InsertItemTemplate>
+            <ItemTemplate>
+                RollNo:
+                <asp:Label ID="RollNoLabel" runat="server" Text='<%# Eval("RollNo") %>' />
+                <br />
+                Name:
+                <asp:Label ID="NameLabel" runat="server" Text='<%# Bind("Name") %>' />
+                <br />
+                Classno:
+                <asp:Label ID="ClassnoLabel" runat="server" Text='<%# Bind("Classno") %>' />
+                <br />
+                Phone:
+                <asp:Label ID="PhoneLabel" runat="server" Text='<%# Bind("Phone") %>' />
+                <br />
+                email:
+                <asp:Label ID="emailLabel" runat="server" Text='<%# Bind("email") %>' />
+                <br />
+                <asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit" />
+                &nbsp;<asp:LinkButton ID="DeleteButton" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete" />
+                &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New" />
+            </ItemTemplate>
+        </asp:FormView>
+        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:soniyaConnectionString %>" DeleteCommand="DELETE FROM [student] WHERE [RollNo] = @RollNo" InsertCommand="INSERT INTO [student] ([RollNo], [Name], [Classno], [Phone], [email]) VALUES (@RollNo, @Name, @Classno, @Phone, @email)" SelectCommand="SELECT * FROM [student]" UpdateCommand="UPDATE [student] SET [Name] = @Name, [Classno] = @Classno, [Phone] = @Phone, [email] = @email WHERE [RollNo] = @RollNo">
+            <DeleteParameters>
+                <asp:Parameter Name="RollNo" Type="Int32" />
+            </DeleteParameters>
+            <InsertParameters>
+                <asp:Parameter Name="RollNo" Type="Int32" />
+                <asp:Parameter Name="Name" Type="String" />
+                <asp:Parameter Name="Classno" Type="Int32" />
+                <asp:Parameter Name="Phone" Type="Int32" />
+                <asp:Parameter Name="email" Type="String" />
+            </InsertParameters>
+            <UpdateParameters>
+                <asp:Parameter Name="Name" Type="String" />
+                <asp:Parameter Name="Classno" Type="Int32" />
+                <asp:Parameter Name="Phone" Type="Int32" />
+                <asp:Parameter Name="email" Type="String" />
+                <asp:Parameter Name="RollNo" Type="Int32" />
+            </UpdateParameters>
+        </asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
+        <br />
+        <asp:DetailsView ID="DetailsView1" runat="server" AllowPaging="True" AutoGenerateRows="False" DataKeyNames="RollNo" DataSourceID="SqlDataSource2" Height="50px" Width="125px">
+            <Fields>
+                <asp:BoundField DataField="RollNo" HeaderText="RollNo" ReadOnly="True" SortExpression="RollNo" />
+                <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+                <asp:BoundField DataField="Classno" HeaderText="Classno" SortExpression="Classno" />
+                <asp:BoundField DataField="Phone" HeaderText="Phone" SortExpression="Phone" />
+                <asp:BoundField DataField="email" HeaderText="email" SortExpression="email" />
+                <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowInsertButton="True" />
+            </Fields>
+        </asp:DetailsView>
+    <div>
+    
+    </div>
+    </form>
+</body>
+</html>
