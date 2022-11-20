@@ -1,0 +1,102 @@
+***********************WEBFORM1.ASPX***********************************************
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="navigation.WebForm1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:SiteMapPath ID="SiteMapPath1" runat="server" ForeColor="Aqua">
+        </asp:SiteMapPath>
+    <div>
+    
+        <asp:Menu ID="Menu1" runat="server" DataSourceID="SiteMapDataSource1" ForeColor="Red">
+        </asp:Menu>
+        <br />
+        <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" />
+    
+    </div>
+    </form>
+</body>
+</html>
+
+***************************WEBFORM2,ASPX********************************************
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm2.aspx.cs" Inherits="navigation.WebForm2" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:SiteMapPath ID="SiteMapPath1" runat="server">
+        </asp:SiteMapPath>
+        <br />Welcome
+    <div>
+    
+    </div>
+    </form>
+</body>
+</html>
+
+***************************WEBFORM3.ASPX******************************************************88
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm3.aspx.cs" Inherits="navigation.WebForm3" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:SiteMapPath ID="SiteMapPath1" runat="server">
+        </asp:SiteMapPath>
+        <br />
+        Hello 
+    <div>
+    
+    </div>
+    </form>
+</body>
+</html>
+
+*********************************WEB.CONFIG**************************************
+
+<?xml version="1.0"?>
+
+<!--
+  For more information on how to configure your ASP.NET application, please visit
+  http://go.microsoft.com/fwlink/?LinkId=169433
+  -->
+
+<configuration>
+    <system.web>
+      <siteMap>
+        <providers>
+          <remove name="MySqlSiteMapProvider"/>
+        </providers>
+      </siteMap>
+      <compilation debug="true" targetFramework="4.5" />
+      <httpRuntime targetFramework="4.5" />
+    </system.web>
+
+</configuration>
+
+***********************SITEMAP.FILE*******************************************************
+
+<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+    <siteMapNode url="WebForm1.aspx" title="Home"  description="">
+        <siteMapNode url="WebForm2.aspx" title="Second Page"  description="" />
+        <siteMapNode url="WebForm3.aspx" title="Third Page"  description="" />
+    </siteMapNode>
+</siteMap>
