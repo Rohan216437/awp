@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Advertisements>
   <Ad>
-    <ImageUrl>drive.png</ImageUrl>
+    <ImageUrl>IMAGE</ImageUrl>
     <NavigateUrl>http://gmail.com</NavigateUrl>
     <AlternateText>Reload</AlternateText>
     <Impression>5</Impression>
     <Keywords>Luffy</Keywords>
   </Ad>
   <Ad>
-    <ImageUrl>google.png</ImageUrl>
+    <ImageUrl>IMAGE</ImageUrl>
     <NavigateUrl>http://gmail.com</NavigateUrl>
     <AlternateText>Reload</AlternateText>
     <Impression>15</Impression>
     <Keywords>chopper</Keywords>
   </Ad>
   <Ad>
-    <ImageUrl>gmail.png</ImageUrl>
+    <ImageUrl>IMAGE</ImageUrl>
     <NavigateUrl>http://gmail.com</NavigateUrl>
     <AlternateText>Reload</AlternateText>
     <Impression>10</Impression>
     <Keywords>nami</Keywords>
   </Ad>
   <Ad>
-    <ImageUrl>photo.png</ImageUrl>
+    <ImageUrl>IMAGE</ImageUrl>
     <NavigateUrl>http://gmail.com</NavigateUrl>
     <AlternateText>Reload</AlternateText>
     <Impression>5</Impression>
